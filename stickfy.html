@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stickyfy - Meme & Custom Stickers</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #050505;
+  color: white;
+  text-align: center;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: #000;
+  padding: 15px;
+  box-shadow: 0 0 20px #0ff;
+  z-index: 1000;
+}
+
+nav a {
+  color: #0ff;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* SECTIONS */
+section {
+  padding: 50px 20px;
+}
+
+h1, h2 {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 20px;
+  background: radial-gradient(circle, #0ff, #000);
+}
+
+/* CARDS */
+.card {
+  display: inline-block;
+  background: #111;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 0 15px #0ff;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* SIZE SELECTOR */
+.size-selector {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.size-selector input {
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  width: 100px;
+  text-align: center;
+}
+
+.size-selector button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background: #0ff;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.card:hover .size-selector {
+  display: block;
+}
+
+/* CART */
+#cart {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px #0ff;
+  margin: 30px auto;
+  width: 80%;
+}
+
+#cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+#cart ul li {
+  background: #222;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 6px;
+  color: #0ff;
+}
+
+#total {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0ff;
+}
+
+/* PAY BOX */
+.paybox {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px #0ff;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.paybox img {
+  margin-top: 15px;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#stickers">Stickers</a>
+  <a href="#cart">Cart</a>
+  <a href="#payment">Pay</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1>Stickyfy</h1>
+  <p>Meme & Custom Stickers Store</p>
+</section>
+
+<!-- STICKERS -->
+<section id="stickers">
+  <h2>Our Stickers</h2>
+
+  <div class="card">
+    <img src="captin america.png" alt="Sticker 1">
+    <p>Meme Sticker 1</p>
+    <div class="size-selector">
+      <input type="number" min="1" max="10" step="0.1" placeholder="Size (inches)" id="size1">
+      <button onclick="addToCart('Sticker 1', document.getElementById('size1').value)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="cat and chick.png" alt="Sticker 2">
+    <p>Meme Sticker 2</p>
+    <div class="size-selector">
+      <input type="number" min="1" max="10" step="0.1" placeholder="Size (inches)" id="size2">
+      <button onclick="addToCart('Sticker 2', document.getElementById('size2').value)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="marval logo.png" alt="Sticker 3">
+    <p>Meme Sticker 3</p>
+    <div class="size-selector">
+      <input type="number" min="1" max="10" step="0.1" placeholder="Size (inches)" id="size3">
+      <button onclick="addToCart('Sticker 3', document.getElementById('size3').value)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="SpiderMan.png" alt="Sticker 4">
+    <p>Meme Sticker 4</p>
+    <div class="size-selector">
+      <input type="number" min="1" max="10" step="0.1" placeholder="Size (inches)" id="size4">
+      <button onclick="addToCart('Sticker 4', document.getElementById('size4').value)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="wonder woman.png" alt="Sticker 5">
+    <p>Meme Sticker 5</p>
+    <div class="size-selector">
+      <input type="number" min="1" max="10" step="0.1" placeholder="Size (inches)" id="size5">
+      <button onclick="addToCart('Sticker 5', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- CART -->
+<section id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <div id="total">Total: ₹0</div>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment">
+  <h2>Scan to Pay via UPI</h2>
+  <div class="paybox">
+    <p>UPI ID: <strong>gauraangsalgaonkar7@upi</strong></p>
+    <img id="upi-qr" src="" alt="UPI QR Code" width="220" height="220">
+    <p>Scan with any UPI app</p>
+  </div>
+</section>
+
+<script>
+let totalAmount = 0;
+
+function addToCart(stickerName, size) {
+  const cartList = document.getElementById("cart-items");
+
+  if(size >= 1 && size <= 10) {
+    const price = size * 10; // ₹10 per inch
+    totalAmount += price;
+
+    const li = document.createElement("li");
+    li.textContent = stickerName + " - " + size + " inch (₹" + price + ")";
+    cartList.appendChild(li);
+
+    document.getElementById("total").textContent = "Total: ₹" + totalAmount;
+
+    updateQRCode();
+  } else {
+    alert("Please enter a size between 1 and 10 inches.");
+  }
+}
+
+function updateQRCode() {
+  const upiLink =
+    "https://quickchart.io/qr?text=" +
+    encodeURIComponent(
+      "upi://pay?pa=gauraangsalgaonkar7@upi&pn=Stickyfy&am=" +
+      totalAmount +
+      "&cu=INR"
+    );
+
+  document.getElementById("upi-qr").src = upiLink;
+}
+
+// Initial QR
+updateQRCode();
+</script>
+
+</body>
+</html>
